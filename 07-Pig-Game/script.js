@@ -3,7 +3,7 @@
 // Select the Element
 const player0El = document.querySelector(".player--0");
 const player1El = document.querySelector(".player--1");
-let score0El = document.getElementById("score--0"); //document.querySelector('#score--0');
+let score0El = document.getElementById('score--0'); //document.querySelector('#score--0');
 let score1El = document.getElementById("score--1");
 let diceEl = document.querySelector(".dice");
 const btnNew = document.querySelector(".btn--new");
@@ -28,10 +28,12 @@ const init = function () {
   btnHold.classList.remove("hidden");
   btnRoll.classList.remove("hidden");
 
-  player0El.classList.remove("player-winner");
-  player1El.classList.remove("player-winner");
+  player0El.classList.remove("player--winner");
+  player1El.classList.remove("player--winner");
   player1El.classList.remove("player--active");
   player0El.classList.add("player--active");
+  console.log(player1El.classList)
+  console.log(player0El.classList)
 };
 init();
 
