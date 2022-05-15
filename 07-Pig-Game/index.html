@@ -8,6 +8,9 @@
     <title>Pig Game</title>
   </head>
   <body>
+  <button class="show-modal">Roles</button>
+
+
     <main>
       <section class="player player--0 player--active">
         <h2 class="name" id="name--0">Player 1</h2>
@@ -24,13 +27,26 @@
           <p class="current-label">Current</p>
           <p class="current-score" id="current--1">0</p>
         </div>
+
       </section>
 
       <img src="dice-5.png" alt="Playing dice" class="dice" />
       <button class="btn btn--new">🔄 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1>Here are the Role of play</h1>
+        <p><b>
+          Each player start with 0 score, and roll the dice when get any number except 1 , it will be added to your total score
+          when you click hold  else if you get 1 it will become 0 and the next player turn will start
+          The player who reach 100 is the winner </b>
+        </p>
+      </div>
+      <div class="overlay hidden"></div>
     </main>
+
+
     <script src="script.js"></script>
   </body>
 </html>
