@@ -50,7 +50,7 @@ console.log(addArrow);
 function addDecl(a, b) {
   return a + b;
 }
-const addExpr = function (a, b) {
+ const addExpr = function (a, b) {
   return a + b;
 };
 var addArrow = (a, b) => a + b;
