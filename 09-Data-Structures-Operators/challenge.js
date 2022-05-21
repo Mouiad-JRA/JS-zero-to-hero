@@ -192,18 +192,18 @@ const gameEvents = new Map([
     [92, '🔶 Yellow card'],
 ]);
 
-const events = new Set() //const events = [...new Set([...gameEvents.values()])]
-
-for (const [key, value] of gameEvents){
-    events.add(value);
-}
-console.log([...events])
-gameEvents.delete(64);
-console.log(gameEvents)
-
-console.log(
-    `An event happened, on average, every ${90 / gameEvents.size} minutes`
-);
+// const events = new Set() //const events = [...new Set([...gameEvents.values()])]
+//
+// for (const [key, value] of gameEvents){
+//     events.add(value);
+// }
+// console.log([...events])
+// gameEvents.delete(64);
+// console.log(gameEvents)
+//
+// console.log(
+//     `An event happened, on average, every ${90 / gameEvents.size} minutes`
+// );
 
 // [
 //     "⚽️ GOAL",
@@ -212,9 +212,9 @@ console.log(
 //     "🔴 Red card"
 // ]
 
-for (const [key, value] of gameEvents){
-    key <=45 ?  console.log(`[FIRST HALF] ${key} : ${value}`) : console.log(`[SECOND HALF] ${key} : ${value}`);
-}
+// for (const [key, value] of gameEvents){
+//     key <=45 ?  console.log(`[FIRST HALF] ${key} : ${value}`) : console.log(`[SECOND HALF] ${key} : ${value}`);
+// }
 // 4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
 //       [FIRST HALF] 17: ⚽️ GOAL
 // */
@@ -222,3 +222,48 @@ for (const [key, value] of gameEvents){
 //     const half = min <= 45 ? 'FIRST' : 'SECOND';
 //     console.log(`[${half} HALF] ${min}: ${event}`);
 // }
+
+
+
+
+/*
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
+THIS TEST DATA (pasted to textarea)
+underscore_case
+ first_name
+Some_Variable
+  calculate_AGE
+delayed_departure
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+Afterwards, test with your own test data!
+GOOD LUCK 😀
+*/
+
+document.body.append(document.createElement(
+    'textarea'
+));
+document.body.append(document.createElement('button'));
+const convert = function (){
+    const underscoreCase = document.querySelector('textarea').value.split('\n');
+    for(const [i, word] of underscoreCase.entries())
+    {
+        const [first, last] = word.trim().split('_')
+        console.log(`${first.toLowerCase()}${last[0].toUpperCase()}${last.slice(1).toLowerCase()}`, '✅'.repeat(i+1))
+    }
+
+}
+document.querySelector('button').addEventListener("click",convert )
+
+// const underscore_case = ['underscore_case', ' first_name', 'Some_Variable', 'delayed_departure', '  calculate_AGE']
+// // console.log(underscore_case)
+// console.log(convert(underscore_case))
