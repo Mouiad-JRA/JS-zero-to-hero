@@ -29,14 +29,15 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const checkDogs = function (dogsJulia, dogsKate){
-    const shallowJulia = Object.assign([], dogsJulia);
-    const mixed = dogsKate.concat([...shallowJulia].slice(1,-2));
-    mixed.forEach(function (age, index){
-        age >= 3 ? console.log(`Dog number ${index} is an adult, and is ${age} years old`):
-            console.log(`Dog number ${index} is a puppy, and is ${age} years old`)
-    })
-}
+const checkDogs = function (dogsJulia, dogsKate) {
+  const shallowJulia = Object.assign([], dogsJulia);
+  const mixed = dogsKate.concat([...shallowJulia].slice(1, -2));
+  mixed.forEach(function (age, index) {
+    age >= 3
+      ? console.log(`Dog number ${index} is an adult, and is ${age} years old`)
+      : console.log(`Dog number ${index} is a puppy, and is ${age} years old`);
+  });
+};
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3])
 // checkDogs( [9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
 
@@ -58,15 +59,34 @@ GOOD LUCK 😀
 
  */
 
-const calcAverageHumanAge = function (ages){
-   const HumanAges =  ages.map(function (dogAge){
-       return dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
-    });
-   const adults = HumanAges.filter(function (age){
-       return age >= 18;
-   });
-   console.log(adults);
-    return adults.reduce((acc, age) => acc + age, 0) / HumanAges.length;
+// const calcAverageHumanAge = function (ages){
+//    const HumanAges =  ages.map(function (dogAge){
+//        return dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
+//     });
+//    const adults = HumanAges.filter(function (age){
+//        return age >= 18;
+//    });
+//    console.log(adults);
+//     return adults.reduce((acc, age) => acc + age, 0) / HumanAges.length;
+// };
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+///////////////////////////////////////
+// Coding Challenge #3
+
+/*
+Rewrite the 'calcAverageHumanAge' function from the previous challenge, but this time as an arrow function, and using chaining!
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+GOOD LUCK 😀
+*/
+
+const calcAverageHumanAge = (ages) =>{
+  ages
+    .map((dogAge) => (dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4))
+    .filter((ages) => ages >= 18)
+    .reduce((acc, age, arr) => acc + age / arr.length, 0);
 };
-calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+
