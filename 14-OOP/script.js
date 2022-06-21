@@ -110,3 +110,51 @@ electricCar.accelerate();
 electricCar.brake();
 electricCar.chargeBattery(90);
 console.log(`${electricCar.make} going at ${electricCar.speed} km/h, with a charge of ${electricCar.charge}%`);
+
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/*
+1. Re-create challenge #3, but this time using ES6 classes: create an 'EVCl' child class of the 'CarCl' class
+2. Make the 'charge' property private;
+3. Implement the ability to chain the 'accelerate' and 'chargeBattery' methods of this class, and also update the 'brake' method in the 'CarCl' class. They experiment with chining!
+DATA CAR 1: 'Rivian' going at 120 km/h, with a charge of 23%
+GOOD LUCK 😀
+*/
+
+class EVCl extends CarCl {
+    #charge;
+   constructor(make, speed,charge) {
+       super(make, speed);
+       this.#charge = charge;
+   }
+    accelerate (){
+        this.charge -= 0.1;
+        this.speed += 20;
+        console.log(`${this.make} going at ${this.speed} km/h, with a charge of ${this.charge}%`);
+        return this;
+    }
+    chargeBattery (chargeTo){
+        this.charge = chargeTo;
+        return this;
+    }
+   brake (){
+        this.speed -=5;
+        console.log(this.speed);
+        return this;
+    }
+}
+
+const carNew = new CarCl('Rivian',100, 20);
+const rivian = new EVCl('Rivian', 120, 23);
+console.log(rivian);
+// console.log(rivian.#charge);
+rivian
+    .accelerate()
+    .accelerate()
+    .accelerate()
+    .brake()
+    .chargeBattery(50)
+    .accelerate();
+console.log(rivian.speedUS);
